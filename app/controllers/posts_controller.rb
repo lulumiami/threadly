@@ -4,4 +4,15 @@ class PostsController < ApplicationController
 		@new_post = Post.new
 		@all_posts = Post.order(created_at: :desc).all
 	end
-end
+
+	def create
+		@new_post = Post.new(post_params)
+		@new_post.save
+  		redirect_to root_path
+	end
+
+	private
+	def post_params
+		post_params.require(:post).permit(:comment)
+	end
+	end
