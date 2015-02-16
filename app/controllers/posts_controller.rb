@@ -13,6 +13,6 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		post_params.require(:post).permit(:comment)
+		params.require(:post).permit(:comment)
 	end
 	end
